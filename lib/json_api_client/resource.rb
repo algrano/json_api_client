@@ -323,7 +323,7 @@ module JsonApiClient
     #
     # @param params [Hash] Attributes, links, and relationships
     def initialize(params = {})
-      params = params.symbolize_keys
+      params = params.to_h.symbolize_keys
       @persisted = nil
       @destroyed = nil
       self.links = self.class.linker.new(params.delete(:links) || {})
